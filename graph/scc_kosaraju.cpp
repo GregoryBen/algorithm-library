@@ -35,5 +35,3 @@ vector<int> get_scc(const vector<vector<int>> &g, const vector<vector<int>> &gr,
   }
   return c;
 }
-
-
