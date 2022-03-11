@@ -61,7 +61,6 @@ vector<int> euler_walk(vector<vector<pair<int, int>>> &g, int m, int sc = 0) {
   if ((int) res.size() != m + 1 || bad) {
     return vector<int>();
   }
-  debug(res);
   vector<int> ans(m + 1);
   for (int i = m; i >= 0; i--) {
     ans[m - i] = res[i].second;
