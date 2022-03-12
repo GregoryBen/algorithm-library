@@ -69,7 +69,7 @@ vector<int> euler_walk(vector<vector<pair<int, int>>> &g, int m, int sc = 0) {
   return ans;
 }
 
-// pencari node (tidak berguna terlalu banyak constant factor)
+// pencari node (kemungkinan tidak berguna terlalu banyak constant factor)
 
 // directed
 int check_euler_walk(vector<vector<pair<int,int>>> &g) {
