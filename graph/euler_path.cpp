@@ -82,22 +82,22 @@ int check_euler_walk(vector<vector<pair<int,int>>> &g) {
       cnt_indegree[j.first]++;
     }
   }
-  int cnt = 0;
+  int diff = 0;
   int vertice = -1;
   for (int i = 0; i < n; i++) {
     int bag = cnt_indegree[i];
     int bag2 = cnt_outdegree[i];
     if (bag != bag2) {
-      cnt++;
+      diff++;
       if (bag - 1 == bag2) {
         vertice = i;
       }
     }
   }
-  if (cnt == 0) {
+  if (diff == 0) {
     return 0;
   }
-  if (cnt == 2 && vertice != -1) {
+  if (diff == 2 && vertice != -1) {
     return vertice;
   }
   return -1;
