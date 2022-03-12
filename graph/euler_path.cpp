@@ -1,15 +1,7 @@
 // author : Simon Lindholm
 // deg = indegree - outdegree
 
-/*
-tidak bekerja untuk kasus
-4
-4
-1 2
-2 3
-2 4
-1 4
-*/
+// cari jika ada degree ganjil pakai src dengan deg ganjil
 
 vector<int> euler_walk(const vector<vector<pair<int, int>>> &g, int m, int sc = 0) {
   int n = g.size();
