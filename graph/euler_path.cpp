@@ -105,3 +105,19 @@ int check_euler_walk(vector<vector<pair<int,int>>> &g) {
 }
 
 // undirected
+int check_euler_walk(vector<vector<pair<int, int>>> &g) {
+  int n = (int) g.size();
+  int sum_odd_deg = 0;
+  int root = 0;
+  for (int i = 0; i < n; i++) {
+    if (g[i].size() % 2 == 1) {
+      sum_odd_deg++;
+      root = i;
+    }
+  }
+  debug(sum_odd_deg);
+  if (sum_odd_deg != 0 && sum_odd_deg != 2) {
+    return -1;
+  }
+  return root;
+}
