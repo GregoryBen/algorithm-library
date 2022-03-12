@@ -1,7 +1,7 @@
 // author : Simon Lindholm
 // deg = indegree - outdegree
 
-// cari jika ada degree ganjil pakai src dengan deg ganjil
+// cari: jika ada degree ganjil, pakai src dengan deg ganjil
 
 vector<int> euler_walk(const vector<vector<pair<int, int>>> &g, int m, int sc = 0) {
   int n = g.size();
@@ -69,3 +69,39 @@ vector<int> euler_walk(vector<vector<pair<int, int>>> &g, int m, int sc = 0) {
   }
   return ans;
 }
+
+// pencari node 
+
+// directed
+int check_euler_walk(vector<vector<pair<int,int>>> &g) {
+  int n = (int) g.size();
+  vector<int> cnt_indegree(n);
+  vector<int> cnt_outdegree(n);
+  for (int i = 0; i < n; i++) {
+    cnt_outdegree[i] += (int) g[i].size();
+    for (auto j : g[i]) {
+      cnt_indegree[j.first]++;
+    }
+  }
+  int cnt = 0;
+  int vertice = -1;
+  for (int i = 0; i < n; i++) {
+    int bag = cnt_indegree[i];
+    int bag2 = cnt_outdegree[i];
+    if (bag != bag2) {
+      cnt++;
+      if (bag - 1 == bag2) {
+        vertice = i;
+      }
+    }
+  }
+  if (cnt == 0) {
+    return 0;
+  }
+  if (cnt == 2 && vertice != -1) {
+    return vertice;
+  }
+  return -1;
+}
+
+// undirected
