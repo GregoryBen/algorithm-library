@@ -46,8 +46,7 @@ vector<int> euler_walk(vector<vector<pair<int, int>>> &g, int m, int sc = 0) {
   vector<int> vis(m);
   vector<pair<int, int>> res;
   function<void(int, int)> dfs = [&](int p, int i) {
-    while (!g[i].empty()) {
-      auto [j, e] = g[i].back();
+    for j, e in g[i]:
       g[i].pop_back();
       if (!vis[e]) {
         vis[e] = true;
@@ -70,7 +69,7 @@ vector<int> euler_walk(vector<vector<pair<int, int>>> &g, int m, int sc = 0) {
   return ans;
 }
 
-// pencari node 
+// pencari node (tidak berguna terlalu banyak constant factor)
 
 // directed
 int check_euler_walk(vector<vector<pair<int,int>>> &g) {
