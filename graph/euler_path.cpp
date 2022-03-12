@@ -114,7 +114,6 @@ int check_euler_walk(vector<vector<pair<int, int>>> &g) {
       root = i;
     }
   }
-  debug(sum_odd_deg);
   if (sum_odd_deg != 0 && sum_odd_deg != 2) {
     return -1;
   }
